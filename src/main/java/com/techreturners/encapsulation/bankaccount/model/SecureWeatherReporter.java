@@ -25,15 +25,15 @@ public class SecureWeatherReporter {
     public String printWeatherInformation() {
 
         double newTemp = getFahrenheitFromTemperature(temperature);
-        return MessageFormat.format("I am in {0} and it is {1}. {2}. The temperature in Fahrenheit is {3}.", location, checkLocation(), checkTemperature(), newTemp);
+        return MessageFormat.format("I am in {0} and it is {1}. {2}. The temperature in Fahrenheit is {3}.", location, getLocationIcon(), getTemperatureFeeling(), newTemp);
 
     }
 
-    private double getFahrenheitFromTemperature(double temp){
+    public double getFahrenheitFromTemperature(double temp){
         return  (9.0/5.0) * temp + 32;
     }
 
-    public String checkLocation() {
+    public String getLocationIcon() {
         if (location.equals("London")) {
             return "🌦";
 
@@ -49,7 +49,7 @@ public class SecureWeatherReporter {
         return "🔆";
     }
 
-    public String checkTemperature() {
+    public String getTemperatureFeeling() {
         if (temperature > HOTTEMP) {
             return "It's too hot 🥵!";
 
